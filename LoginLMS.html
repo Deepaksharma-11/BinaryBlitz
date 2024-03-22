@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up & Login Forms</title>
+<style>
+    
+  body {
+    background-image: url('https://fliphtml5.com/learning-center/wp-content/uploads/2020/03/best-online-learning-platform.png');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 330px;
+  }
+  .container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+    margin-right: 20px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .form-group input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+  }
+  .form-group input[type="submit"]:hover {
+    background-color: #4cae4c;
+  }
+  .switch-form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .switch-form a {
+    text-decoration: none;
+    color: #5cb85c;
+  }
+</style>
+</head>
+<body>
+  <div class="container" id="login-form">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Log In">
+      </div>
+    </form>
+    <div class="switch-form">
+      Don't have an account? <a href="#signup-form">Sign Up</a>
+    </div>
+  </div>
+
+  <div class="container" id="signup-form" style="display:none;">
+    <h2>Sign Up</h2>
+    <form action="/signup" method="post">
+      <div class="form-group">
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Sign Up">
+      </div>
+    </form>
+    <div class="switch-form">
+      Already have an account? <a href="#login-form">Login</a>
+    </div>
+  </div>
+
+<script>
+  
+  document.querySelectorAll('.switch-form a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      let targetForm = this.getAttribute('href');
+      document.querySelector('#login-form').style.display = targetForm === '#login-form' ? 'block' : 'none';
+      document.querySelector('#signup-form').style.display = targetForm === '#signup-form' ? 'block' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
